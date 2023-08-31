@@ -6,9 +6,6 @@ public class prime_array {
 
     public static boolean isValid(String password)
     {
-
-
-
         if (!((password.length() > 8)
                 && (password.length() < 31))) {
             return false;
