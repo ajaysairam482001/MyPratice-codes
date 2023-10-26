@@ -5,7 +5,7 @@ public class twoDArray {
             char[][] board = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
             String word = "ASAD";
             boolean a= exist(board,word);
-           // System.out.println(exist(board,word));
+           System.out.println(exist(board,word));
 
         }
         static boolean[][] visited;

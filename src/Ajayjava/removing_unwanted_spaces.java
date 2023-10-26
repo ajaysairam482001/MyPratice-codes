@@ -20,9 +20,9 @@ public class removing_unwanted_spaces {
             }
         }
 
-        if (isSpace) {
-            result.deleteCharAt(0); // Remove leading space, if any
-        }
+//        if (isSpace) {
+//            result.deleteCharAt(0); // Remove leading space, if any
+//        }
 
         System.out.println(result.toString());
     }

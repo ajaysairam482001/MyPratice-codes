@@ -1,8 +1,9 @@
 package Ajayjava;
 
 import java.util.Scanner;
-
-public class prime_array {
+//Enter password: password
+//InValid
+public class Password_ValidityCheck {
 
     public static boolean isValid(String password)
     {
@@ -98,13 +99,14 @@ public class prime_array {
     public static void main(String[] args)
     {
         Scanner in = new Scanner(System.in);
+        System.out.print("Enter password: ");
         String password1 = in.nextLine();
 
         if (isValid(password1)) {
-            System.out.println("true");
+            System.out.println("Valid");
         }
         else {
-            System.out.println("false");
+            System.out.println("InValid");
         }
 
 
