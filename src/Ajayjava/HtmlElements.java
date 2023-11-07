@@ -82,6 +82,7 @@ public class HtmlElements {
      * @return the enclosed value of a tag
      */
     private static String getTagValue(String tag) {
+
         return tag.replaceAll("[></]", "");
     }
 
