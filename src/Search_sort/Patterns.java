@@ -6,7 +6,7 @@ import virtusa.poly.Main;
 public class Patterns {
     public static void main(String[] args) {
         int n = 5;
-        pattern31(n);
+        pattern8(n);
     }
     static void pattern31(int n){
         int N = n*2-1;//5

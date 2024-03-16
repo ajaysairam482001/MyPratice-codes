@@ -33,8 +33,8 @@ public class Find_LongestSubstringwith_K_UniqueCharacters {
 
     public static void main(String[] args) {
         Find_LongestSubstringwith_K_UniqueCharacters obj = new Find_LongestSubstringwith_K_UniqueCharacters();
-        String s = "aabbbbb";
-        int k = 3;
+        String s = "abca";
+        int k = 4;
         System.out.println(obj.K_UniqCharacter(s,k));
         System.out.println(obj.K_UniqCharacterSubstring(s,k));
         //for testcases refer:https://www.geeksforgeeks.org/find-the-longest-substring-with-k-unique-characters-in-a-given-string/

@@ -5,14 +5,21 @@ package Recursion;
 
 //https://www.youtube.com/watch?v=M2uO2nMT0Bk (kunal video on types of recurrence) time: 1.27.57
 public class Factorial {
-    public static int fact(int num){
+    public static int fact(int num){ // product of 1 to n;
         if(num == 0)
             return 1;
         return num * fact(num-1);
     }
 
+    public static int sum(int num){ // sum of 1 to n;
+        if(num == 0)
+            return 0;
+        return num + sum(num-1);
+    }
+
     public static void main(String[] args) {
         System.out.println(fact(5));
+        System.out.println(sum(5));
     }
 }
 //It is a non-tail-recursive function. Although it looks like a tail recursive at first look.

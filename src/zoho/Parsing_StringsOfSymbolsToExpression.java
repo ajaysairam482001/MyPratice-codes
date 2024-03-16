@@ -76,8 +76,9 @@ public class Parsing_StringsOfSymbolsToExpression {
         }
 
         public static void main(String[] args) {
-            String expression = "2+3*4/3-2";
+            String expression = "10+2*2-4";
             int ans = (evaluate(expression));
+            System.out.println(ans);
         }
     }
 
