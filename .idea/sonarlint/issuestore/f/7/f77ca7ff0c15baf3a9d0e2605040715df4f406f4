@@ -1,0 +1,5 @@
+
+x
+java:S4165&"bRemove this useless assignment; "stat" already holds the assigned value along all execution paths.(¤Èøá
+E
+java:S1656&"/Remove or correct this useless self-assignment.(¤Èøá

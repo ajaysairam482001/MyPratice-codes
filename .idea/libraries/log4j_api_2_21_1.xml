@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="log4j-api-2.21.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/production/first_project/FITA/serialization/lib/log4j-api-2.21.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/first_project/FITA/serialization/lib/xmlbeans-5.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/first_project/FITA/serialization/lib/poi-ooxml-lite-5.2.5.jar!/" />
+      <root url="file://$PROJECT_DIR$/out/production/first_project/FITA/serialization/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/out/production/first_project/FITA/serialization/lib" recursive="false" />
+  </library>
+</component>

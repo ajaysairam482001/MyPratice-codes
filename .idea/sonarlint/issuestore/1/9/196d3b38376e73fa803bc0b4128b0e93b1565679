@@ -1,0 +1,8 @@
+
+i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(º“ç»8—Øä1
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÚÃáışÿÿÿÿ8­Øä1
+D
+java:S1125+"'Remove the unnecessary boolean literal.(ó¶Æ­8­Øä1
+K
+java:S1128".Remove this unused import 'java.util.Objects'.(¼¸õ›8°Øä1

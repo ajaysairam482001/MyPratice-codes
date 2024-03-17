@@ -1,0 +1,8 @@
+
+c
+java:S2095"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(±À
+j
+java:S2095"OUse try-with-resources or close this "ObjectInputStream" in a "finally" clause.(µª°úÿÿÿÿ
+“
+java:S1130
+"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(‡ÄÉüÿÿÿÿ

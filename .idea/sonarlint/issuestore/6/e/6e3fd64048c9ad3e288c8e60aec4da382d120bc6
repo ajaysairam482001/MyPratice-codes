@@ -1,0 +1,15 @@
+
+Q
+java:S1066+"/Merge this if statement with the enclosing one.(óÛÚ’şÿÿÿÿ8Ş¤‘íã1
+L
+java:S10660"/Merge this if statement with the enclosing one.(åèË¦8â¤‘íã1
+Q
+java:S10665"/Merge this if statement with the enclosing one.(÷ì±¢ıÿÿÿÿ8â¤‘íã1
+Q
+java:S1066:"/Merge this if statement with the enclosing one.(»¼—ˆûÿÿÿÿ8â¤‘íã1
+i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¥íß¶8â¤‘íã1
+i	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆïÄ8î¤‘íã1
+c
+java:S1126C"AReplace this if-then-else statement by a single return statement.(á¥‰ßüÿÿÿÿ8î¤‘íã1
+J
+java:S1128"(Remove this unused import 'javax.swing'.(Ìí¿Üüÿÿÿÿ8î¤‘íã1
