@@ -86,6 +86,19 @@ public class SLL {
          size++;
      }
 
+     void insertRec(int value,int index){
+         head = insertRec(value,index,head); //start from head
+     }
+     private Node insertRec(int value,int index,Node node){
+         if(index == 0){ //when you hit the required node index to add it to
+             Node temp = new Node(value,node); //create a new node and point it to the current one in the index(3)
+             size++;
+             return temp; //just return it so the previous call the node.next (in index 2) will point to the new node created making it(the new node) as index 3
+         }
+         node.next = insertRec(value,index-1,node.next);
+         return node;
+     }
+
      void deleteFirst(){
          if(head == null){
              System.out.println("List does not exist");
@@ -159,4 +172,116 @@ public class SLL {
             this.next = next;
         }
     }
+
+    //Questions Leetcode: (QN:83)
+    void sortedDuplicateRemoval(){
+        if(head == null){
+            return;
+        }
+        Node node = head;
+        while(node.next != null){
+            if(node.value == node.next.value){
+                node.next = node.next.next;
+            }
+            else {
+                node = node.next;
+            }
+        }
+        tail = node;
+        tail.next = null;
+    }
+
+    //Question //merge Leetcode: (Qn:21) //https://leetcode.com/problems/merge-two-sorted-lists/submissions/1206240968/
+    //check out this solution is different than the other!
+    SLL mergeTwoSortedLists(Node list1,Node list2){
+         SLL ans = new SLL();
+         Node f = list1;
+         Node s = list2;
+         while(f !=null && s!=null){
+             if(f.value<s.value){
+                 ans.insertLast(f.value);
+                 f = f.next;
+             }else {
+                 ans.insertLast(s.value);
+                 s = s.next;
+             }
+         }
+         while(f!=null){
+             ans.insertLast(f.value);
+             f = f.next;
+         }
+        while(s!=null){
+            ans.insertLast(s.value);
+            s = s.next;
+        }
+        return ans;
+    }
+
+    //Question // if the linkedlist has a cycle ? https://leetcode.com/problems/linked-list-cycle/
+    //Leetcode: (QN:141)
+    public boolean hasCycle(Node head) {
+        Node fast = head;
+        Node slow = head;
+        while(fast!=null && fast.next!=null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int cycleLength(Node head) {
+        Node fast = head;
+        Node slow = head;
+        while(fast!=null && fast.next!=null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow){ //to count the length of the cycle
+                int length = 0;
+                Node temp = slow;
+                do{
+                    temp = temp.next;
+                    length++;
+                }while(temp != slow);
+                return length;
+            }
+        }
+        return 0;
+    }
+
+    //Leetcode: (Qn:206) (recursive) (not submitted because of tail not available issues)
+    public void reverse(Node node){
+         if(node == tail){
+             head = node;
+             return;
+         }
+         reverse(node.next);
+         tail.next = node;
+         tail = node;
+         node.next = null;
+    }
+
+   // Leetcode: (Qn:206) (iterative)
+    public void reverse(){
+        if(size<2){
+            return;
+        }
+        Node prev = null;
+        Node present = head;
+        Node next = present.next;
+
+        while (present!=null){
+            present.next = prev;
+            prev = present;
+            present = next;
+            if(next!=null){
+                next = next.next;
+            }
+            head = prev;
+        }
+    }
+
+
 }
