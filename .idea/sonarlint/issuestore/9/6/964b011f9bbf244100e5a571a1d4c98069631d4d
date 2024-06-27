@@ -1,0 +1,14 @@
+
+{	java:S135ù"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆžÿÿÿÿÿ8Ô±®…æ1
+h
+java:S2259Ö"EA "NullPointerException" could be thrown; "current" is nullable here.(ÿÊÉÑùÿÿÿÿ8…²®…æ1
+c
+java:S1126R"AReplace this if-then-else statement by a single return statement.(ÌŽãñüÿÿÿÿ8‰²®…æ1
+^
+java:S1126•"AReplace this if-then-else statement by a single return statement.(„ïâ8Š²®…æ1
+u
+java:S3776ì"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(òâ¶…øÿÿÿÿ8Œ²®…æ1
+u
+java:S3776›"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(§î¼ˆúÿÿÿÿ8Œ²®…æ1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ž²®…æ1

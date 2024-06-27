@@ -1,0 +1,5 @@
+
+a	java:S112-"FDefine and throw a dedicated exception instead of using a generic one.(Α­88¶ΨΫς„2
+a	java:S112+"FDefine and throw a dedicated exception instead of using a generic one.(ίν®L8¶ΨΫς„2
+’
+java:S1319L"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(φªί¬ϊÿÿÿÿ8¶ΨΫς„2
