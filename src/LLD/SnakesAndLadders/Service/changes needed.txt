@@ -1,0 +1,179 @@
+Testcases:
+snakes:
+8
+65 15
+41 20
+99 3
+60 23
+45 6
+23 11
+72 32
+49 31
+
+Ladders:
+7
+10 20
+61 78
+14 62
+21 95
+30 54
+2 54
+11 64
+
+player
+3
+Rahul
+Garuv
+kunal
+
+can do better//
+
+The code you've provided for the game implementation can be improved for clarity, efficiency, and robustness. Here's a breakdown of the potential issues and improvements:
+
+### Issues and Improvements
+
+1. **Exception Handling**:
+   - Extending `Exception` is generally not recommended unless you are creating a custom exception class. It's better to handle exceptions explicitly where they occur.
+
+2. **Input Handling**:
+   - Using `Scanner` for input is fine, but there should be checks for invalid inputs (e.g., non-integer inputs, positions out of bounds).
+
+3. **Assertions**:
+   - Assertions are disabled by default and should not be used for input validation. Replace `assert player != null;` with proper error handling.
+
+4. **Code Readability and Structure**:
+   - The game logic and input handling can be modularized for better readability and maintainability.
+   - Magic numbers (like 100 for the board size) should be defined as constants.
+
+5. **Thread Safety**:
+   - If this game is intended to be multi-threaded, you need to ensure thread safety, especially with shared resources like `props`.
+
+### Refactored Code
+
+Here's a refactored version of your code:
+
+```java
+import java.util.*;
+
+public class PlayGame {
+    private Entities props;
+    private Dice dice;
+    private static final int BOARD_SIZE = 100;
+
+    public PlayGame() {
+        props = Entities.getInstance();
+        dice = new Dice(6); // give it as input if you want
+    }
+
+    public void play() {
+        try (Scanner in = new Scanner(System.in)) {
+            setupGame(in);
+
+            // Game starts
+            while (true) {
+                Player player = props.getPlayers().poll();
+                if (player == null) {
+                    throw new IllegalStateException("No players found in the queue.");
+                }
+
+                int roll = dice.roll();
+                System.out.print(player.getPlayerName() + " rolled a " + roll);
+                int newPosition = player.getPosition() + roll;
+
+                if (isWithinBoard(newPosition)) {
+                    newPosition = handleSpecialTiles(newPosition, player);
+                    player.setPosition(newPosition);
+                    System.out.println(" and moved to " + newPosition);
+                } else {
+                    System.out.println(" but stays at " + player.getPosition() + " (out of bounds)");
+                }
+
+                props.setPlayers(player); // Add to the back of the queue
+
+                if (isGameEnded(player)) {
+                    break;
+                }
+            }
+        } catch (InputMismatchException e) {
+            System.err.println("Invalid input. Please enter the correct values.");
+        } catch (Exception e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        }
+    }
+
+    private void setupGame(Scanner in) {
+        System.out.println("Enter the number of snakes and their positions");
+        int snakeCount = in.nextInt();
+        for (int i = 0; i < snakeCount; i++) {
+            int start = in.nextInt();
+            int end = in.nextInt();
+            props.setSnakes(start, end);
+        }
+
+        System.out.println("Enter the number of ladders and their positions");
+        int ladderCount = in.nextInt();
+        for (int i = 0; i < ladderCount; i++) {
+            int start = in.nextInt();
+            int end = in.nextInt();
+            props.setLadders(start, end);
+        }
+
+        System.out.println("Enter the number of players and their names");
+        int playerCount = in.nextInt();
+        if (playerCount <= 0) {
+            throw new IllegalArgumentException("Player count cannot be zero or negative.");
+        }
+        for (int i = 0; i < playerCount; i++) {
+            String name = in.next();
+            Player player = new Player(name);
+            props.setPlayers(player);
+        }
+    }
+
+    private boolean isWithinBoard(int position) {
+        return position <= BOARD_SIZE;
+    }
+
+    private int handleSpecialTiles(int position, Player player) {
+        if (props.getSnakes().containsKey(position)) {
+            System.out.print(" and encountered a snake");
+            return props.getSnakes().get(position);
+        } else if (props.getLadders().containsKey(position)) {
+            System.out.print(" and found a ladder");
+            return props.getLadders().get(position);
+        } else {
+            return position;
+        }
+    }
+
+    private boolean isGameEnded(Player player) {
+        if (player.getPosition() == BOARD_SIZE) {
+            System.out.println();
+            System.out.println(player.getPlayerName() + " won the game!");
+            return true;
+        }
+        System.out.println();
+        return false;
+    }
+}
+```
+
+### Explanation of Improvements
+
+1. **Exception Handling**:
+   - Used `try-with-resources` for `Scanner` to ensure it gets closed automatically.
+   - Added specific error handling for input mismatches and general exceptions.
+
+2. **Modularized Setup**:
+   - The `setupGame` method handles the initial setup, making the `play` method cleaner and more focused on the game loop.
+
+3. **Input Validation**:
+   - Added basic validation for player count.
+
+4. **Constants**:
+   - Defined `BOARD_SIZE` as a constant for clarity and easy modification.
+
+5. **Improved Output**:
+   - Enhanced the printed output to make the game's progression clearer.
+
+By implementing these changes, the code is more readable, maintainable, and robust.
